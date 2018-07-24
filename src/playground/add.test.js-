@@ -1,0 +1,17 @@
+const add = (a, b) => a + b;
+const generateGreeting = (name = 'Anon') => 'Hello ' + name;
+
+test('should add two numberns', () => {
+    const result = add(3, 4);
+    expect(result).toBe(7);
+});
+
+test('should give a name', () => {
+    const result = generateGreeting('Chris');
+    expect(result).toBe('Hello Chris');
+});
+
+test('should give an anon greeting', () => {
+    const result = generateGreeting();
+    expect(result).toBe('Hello Anon');
+});
