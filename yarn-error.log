@@ -1,25 +1,26 @@
 Arguments: 
-  /Users/christianrosler/.nvm/versions/node/v10.4.0/bin/node /Users/christianrosler/.nvm/versions/node/v10.4.0/bin/yarn test -- --watchAll
+  C:\Program Files\nodejs\node.exe C:\Users\CB\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js install --production
 
 PATH: 
-  /Users/christianrosler/.nvm/versions/node/v10.4.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+  C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Tools\Calibre\;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\dotnet\bin;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\nodejs\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Users\CB\AppData\Local\Microsoft\WindowsApps;C:\Users\CB\AppData\Roaming\npm;C:\Program Files\heroku\bin
 
 Yarn version: 
-  1.7.0
+  1.6.0
 
 Node version: 
-  10.4.0
+  8.11.1
 
 Platform: 
-  darwin x64
+  win32 x64
 
 Trace: 
-  SyntaxError: /Volumes/Projects/_practice/expensify-app/package.json: Unexpected token / in JSON at position 253
+  SyntaxError: C:\Users\CB\Dropbox\lernen\React\react-course-projects\expensify-app\package.json: Unexpected token } in JSON at position 1285
       at JSON.parse (<anonymous>)
-      at /Users/christianrosler/.nvm/versions/node/v10.4.0/lib/node_modules/yarn/lib/cli.js:1130:59
+      at C:\Users\CB\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:1130:59
       at Generator.next (<anonymous>)
-      at step (/Users/christianrosler/.nvm/versions/node/v10.4.0/lib/node_modules/yarn/lib/cli.js:98:30)
-      at /Users/christianrosler/.nvm/versions/node/v10.4.0/lib/node_modules/yarn/lib/cli.js:109:13
+      at step (C:\Users\CB\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:98:30)
+      at C:\Users\CB\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:109:13
+      at <anonymous>
 
 npm manifest: 
   {
@@ -29,11 +30,12 @@ npm manifest:
     "author": "Christian Roesler",
     "license": "MIT",
     "scripts": {
-      "serve": "live-server public/",
-      "build": "webpack --watch",
+      "build:dev": "webpack",
+      "build:prod": "webpack -p --env production",
       "dev-server": "webpack-dev-server",
-      // "test": "jest"
-      "test": "jest --config=jest.config.json"
+      "test": "jest --config=jest.config.json",
+      "start": "node server/server.js",
+      "heroku-postbuild": "yarn run build:prod"
     },
     "dependencies": {
       "babel-cli": "^6.24.1",
@@ -44,9 +46,8 @@ npm manifest:
       "babel-preset-env": "1.5.2",
       "babel-preset-react": "6.24.1",
       "css-loader": "0.28.4",
-      "enzyme": "3.0.0",
-      "enzyme-adapter-react-16": "1.0.0",
-      "jest": "^23.2.0",
+      "express": "^4.16.3",
+      "extract-text-webpack-plugin": "^3.0.2",
       "live-server": "^1.2.0",
       "moment": "2.18.1",
       "node-sass": "^4.9.0",
@@ -59,13 +60,20 @@ npm manifest:
       "react-modal": "^3.4.4",
       "react-redux": "^5.0.7",
       "react-router-dom": "^4.2.2",
-      "react-test-renderer": "16.0.0",
       "redux": "^4.0.0",
       "sass-loader": "^7.0.1",
       "style-loader": "0.18.2",
       "uuid": "^3.2.1",
       "validator": "8.0.0",
       "webpack": "3.1.0",
+    },
+    "devDependencies": {
+      "chalk": "^2.4.1",
+      "enzyme": "3.0.0",
+      "enzyme-adapter-react-16": "1.0.0",
+      "enzyme-to-json": "3.0.1",
+      "react-test-renderer": "16.0.0",
+      "jest": "^23.2.0",
       "webpack-dev-server": "2.5.1"
     }
   }
@@ -368,7 +376,7 @@ Lockfile:
     version "1.5.2"
     resolved "https://registry.yarnpkg.com/async/-/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
   
-  async@^2.1.2, async@^2.1.4:
+  async@^2.1.2, async@^2.1.4, async@^2.4.1:
     version "2.6.1"
     resolved "https://registry.yarnpkg.com/async/-/async-2.6.1.tgz#b245a23ca71930044ec53fa46aa00a3e87c6a610"
     dependencies:
@@ -2176,6 +2184,12 @@ Lockfile:
       object.assign "^4.0.4"
       prop-types "^15.6.0"
   
+  enzyme-to-json@3.0.1:
+    version "3.0.1"
+    resolved "https://registry.yarnpkg.com/enzyme-to-json/-/enzyme-to-json-3.0.1.tgz#16468e2ff3e4db817d84f9df38760abbc322273d"
+    dependencies:
+      lodash "^4.17.4"
+  
   enzyme@3.0.0:
     version "3.0.0"
     resolved "https://registry.yarnpkg.com/enzyme/-/enzyme-3.0.0.tgz#94ce364254dc654c4e619b25eecc644bf6481de7"
@@ -2433,7 +2447,7 @@ Lockfile:
       jest-message-util "^23.2.0"
       jest-regex-util "^23.0.0"
   
-  express@^4.13.3:
+  express@^4.13.3, express@^4.16.3:
     version "4.16.3"
     resolved "https://registry.yarnpkg.com/express/-/express-4.16.3.tgz#6af8a502350db3246ecc4becf6b5a34d22f7ed53"
     dependencies:
@@ -2503,6 +2517,15 @@ Lockfile:
       regex-not "^1.0.0"
       snapdragon "^0.8.1"
       to-regex "^3.0.1"
+  
+  extract-text-webpack-plugin@^3.0.2:
+    version "3.0.2"
+    resolved "https://registry.yarnpkg.com/extract-text-webpack-plugin/-/extract-text-webpack-plugin-3.0.2.tgz#5f043eaa02f9750a9258b78c0a6e0dc1408fb2f7"
+    dependencies:
+      async "^2.4.1"
+      loader-utils "^1.1.0"
+      schema-utils "^0.3.0"
+      webpack-sources "^1.0.1"
   
   extsprintf@1.3.0:
     version "1.3.0"
