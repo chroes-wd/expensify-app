@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\CB\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js install --production
+  C:\Program Files\nodejs\node.exe C:\Users\CB\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add numeral
 
 PATH: 
   C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Tools\Calibre\;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\dotnet\bin;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\nodejs\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Users\CB\AppData\Local\Microsoft\WindowsApps;C:\Users\CB\AppData\Roaming\npm;C:\Program Files\heroku\bin
@@ -14,13 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  SyntaxError: C:\Users\CB\Dropbox\lernen\React\react-course-projects\expensify-app\package.json: Unexpected token } in JSON at position 1285
-      at JSON.parse (<anonymous>)
-      at C:\Users\CB\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:1130:59
-      at Generator.next (<anonymous>)
-      at step (C:\Users\CB\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:98:30)
-      at C:\Users\CB\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:109:13
-      at <anonymous>
+  Error: EPERM: operation not permitted, unlink 'C:\Users\CB\Dropbox\lernen\React\react-course-projects\expensify-app\node_modules\acorn-globals\node_modules\.bin'
 
 npm manifest: 
   {
@@ -65,7 +59,7 @@ npm manifest:
       "style-loader": "0.18.2",
       "uuid": "^3.2.1",
       "validator": "8.0.0",
-      "webpack": "3.1.0",
+      "webpack": "3.1.0"
     },
     "devDependencies": {
       "chalk": "^2.4.1",
