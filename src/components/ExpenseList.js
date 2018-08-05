@@ -1,7 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ExpenseListItem from './ExpenseListItem';
+import ExpensesSummary from './ExpensesSummary';
 import selectExpenses from '../selectors/expenses'
+
+
+
 
 export const ExpenseList = (props) => (    // We defined the component that we want to create the connected version of.The connect result is that we get the props from our store
   <div>
@@ -19,6 +23,8 @@ export const ExpenseList = (props) => (    // We defined the component that we w
               */
           )
       } )}
+      <h2>Total Expenses</h2>
+      <ExpensesSummary />
   </div>
 );
 

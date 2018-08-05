@@ -5,6 +5,10 @@ exports[`should render ExpenseList with empty message 1`] = `
   <h1>
     My ExpenseList
   </h1>
+  <h2>
+    Total Expenses
+  </h2>
+  <Connect(ExpensesSummary) />
 </div>
 `;
 
@@ -37,5 +41,9 @@ exports[`should render ExpenseList with expenses 1`] = `
     key="3"
     note=""
   />
+  <h2>
+    Total Expenses
+  </h2>
+  <Connect(ExpensesSummary) />
 </div>
 `;
